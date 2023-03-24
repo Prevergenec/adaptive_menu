@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru" dir="ltr">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Adaptive menu</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				list-style: none;
+			}
+			.navbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 20px;
+				background-color: #EE6E73;
+				color: #FFF;
+			}
+			.logo {
+				font-size: 30px;
+			}
+			.menu {
+				display: flex;
+				font-size: 18px;
+			}
+			.menu li {
+				padding: 5px 15px;
+			}
+			#checkbox-toggle {
+				display: none;
+			}
+			.hamburger {
+				display: none;
+				font-size: 24px;
+				cursor: pointer;
+			}
+			.hamburger-line {
+				background-color: #FFFFFF;
+				display: block;
+				position: relative;
+				height: 2px;
+				width: 20px;
+			}
+			.hamburger-line::before,
+			.hamburger-line::after {
+				content: '';
+				background-color: #FFF;
+				display: block;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				transition: all .3s;
+			}
+			.hamburger-line::before {
+				top: 7px;
+			}
+			.hamburger-line::after {
+				top: -7px;
+			}
+			@media screen and (min-width: 100px) and (max-width: 1024px) {
+				.menu {
+					max-height: 0;
+					overflow: hidden;
+					position: absolute;
+					text-align: center;
+					right: 0;
+					left: 0;
+					background-color: #CCC;
+					margin-top: 20px;
+				}
+				.hamburger {
+					display: block;
+					padding: 20px 0;
+				}
+				#checkbox-toggle:checked ~ .menu {
+					display: block;
+					max-height: 100%;
+					transition: all .5s;
+				}
+				#checkbox-toggle:checked ~ .hamburger .hamburger-line {
+					background-color: transparent;
+				}
+				#checkbox-toggle:checked ~ .hamburger .hamburger-line:before {
+					top: 0;
+					transform: rotate(-45deg);
+				}
+				#checkbox-toggle:checked ~ .hamburger .hamburger-line:after {
+					top: 0;
+					transform: rotate(45deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar">
+			<div class="logo">
+				LOGO
+			</div>
+			<div class="nav-link">
+				<input type="checkbox" id="checkbox-toggle" />
+				<label for="checkbox-toggle" class="hamburger"><span class="hamburger-line"></span></label>
+				<ul class="menu">
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+					<li>Item 4</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
